@@ -1,0 +1,107 @@
+# ══════════════════════════════════════════════════════════════
+#  Advanced Network & Port Scanner v2.0 — Full Requirements
+#  Install: pip install -r requirements.txt
+#  Python  : 3.8 or higher required
+# ══════════════════════════════════════════════════════════════
+
+# ── Third-party packages (pip install) ────────────────────────
+
+scapy>=2.5.0
+# Raw packet crafting for SYN / NULL / FIN / XMAS / ACK / WIN / UDP scans.
+# Also used for: ICMP ping, ARP MAC lookup, OS TTL fingerprinting.
+# Requires root / Administrator to send raw packets.
+
+python-nmap>=0.7.1
+# Python wrapper around the nmap binary.
+# Optional — enhances service/version detection if nmap is installed.
+
+requests>=2.28.0
+# HTTP library used for REST-based service probes (Elasticsearch,
+# Docker API, Kubernetes API, Grafana health endpoint, etc.)
+
+# ── Standard Library (built into Python — no install needed) ──
+
+# tkinter          GUI framework (window, widgets, tabs, treeview)
+#                  Linux only: sudo apt install python3-tk
+#                  Windows/macOS: included with standard Python installer
+
+# socket           TCP connect scan, UDP scan, banner grabbing,
+#                  hostname resolution, service name lookup
+
+# ssl              TLS certificate inspection — extracts CN, expiry,
+#                  issuer; wraps raw sockets for HTTPS/IMAPS/LDAPS probes
+
+# threading        Background scan threads, stop-event signalling
+
+# concurrent.futures  ThreadPoolExecutor for parallel port scanning
+
+# queue            Thread-safe log message queue (scanner → GUI)
+
+# ipaddress        CIDR network parsing, host enumeration,
+#                  private-IP detection, scope enforcement
+
+# subprocess       System ping fallback for host discovery
+
+# socket           getservbyport() for unknown service name lookup
+
+# re               Regex extraction of version strings, server headers,
+#                  CVE-relevant banners from probe responses
+
+# ssl              Already listed above
+
+# json             JSON report export
+
+# csv              CSV report export
+
+# os               File path operations for report saving
+
+# platform         OS detection (Windows vs Linux ping flags, Python version)
+
+# random           Port order randomisation (stealth scanning option)
+
+# datetime         Scan timestamps, report generation time
+
+# struct           Binary packet field parsing (low-level probe responses)
+
+# time             Scan timing, rate-limit throttle, recv deadline
+
+# ── System Dependencies ────────────────────────────────────────
+
+# nmap (binary)    Optional. Install separately for python-nmap to work:
+#                  Linux  : sudo apt install nmap
+#                  macOS  : brew install nmap
+#                  Windows: https://nmap.org/download.html
+
+# libpcap / WinPcap / Npcap
+#                  Required by Scapy for raw socket capture/injection.
+#                  Linux  : sudo apt install libpcap-dev   (usually pre-installed)
+#                  macOS  : brew install libpcap           (usually pre-installed)
+#                  Windows: Install Npcap from https://npcap.com
+
+# python3-tk       Required on Linux if tkinter is missing:
+#                  sudo apt install python3-tk             (Debian/Ubuntu)
+#                  sudo dnf install python3-tkinter        (Fedora/RHEL)
+#                  sudo pacman -S tk                       (Arch)
+
+# ── Quick Install Commands ─────────────────────────────────────
+
+# Linux (full setup):
+#   sudo apt install python3-tk libpcap-dev nmap
+#   pip install -r requirements.txt
+
+# macOS:
+#   brew install nmap
+#   pip install -r requirements.txt
+
+# Windows:
+#   1. Install Npcap from https://npcap.com
+#   2. Install nmap from https://nmap.org/download.html
+#   3. pip install -r requirements.txt
+
+# ── Run ───────────────────────────────────────────────────────
+
+# Linux/macOS (root required for raw packet scans):
+#   sudo python3 advanced_port_scanner.py
+
+# TCP Connect mode only (no root needed):
+#   python3 advanced_port_scanner.py
